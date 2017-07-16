@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="theme-color" content="#33474d">
-	<title>Independent Dog</title>
+	<title>Const in C++ | Independent Dog</title>
 	<link rel="stylesheet" href="/css/style.css" />
 	
       <link rel="alternate" href="https://www.google.com.tw/" title="Independent Dog" type="application/atom+xml">
@@ -33,11 +33,19 @@
 	<main>
 		<article>
 	
-		<h1></h1>
+		<h1>Const in C++</h1>
 	
 	<div class="article__infos">
-		<span class="article__date">2017-07-16</span><br />
+		<span class="article__date">2017-03-30</span><br />
 		
+			<span class="article__category">
+				<a class="article-category-link" href="/categories/program/">program</a>
+			</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/Cpp/">Cpp</a>
+			</span>
 		
 	</div>
 
@@ -50,10 +58,11 @@
 <li>variable</li>
 <li>pointer</li>
 <li>function</li>
-<li>class constructor<br><br><br>###1. variable<br>基本數據修飾在位置上其實沒什麼差別。<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> variable1 = <span class="number">10</span>;</div><div class="line"><span class="keyword">int</span> <span class="keyword">const</span> variable2 = <span class="number">10</span>;</div></pre></td></tr></table></figure>
-</li>
+<li>class constructor</li>
 </ol>
-<p>variable1 和 variable2 實際上是相同的東西，當然在陣列等其他基本數據類別也是一樣的狀況。</p>
+<p><br></p>
+<p>###1. variable<br>基本數據修飾在位置上其實沒什麼差別。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> variable1 = <span class="number">10</span>;</div><div class="line"><span class="keyword">int</span> <span class="keyword">const</span> variable2 = <span class="number">10</span>;</div></pre></td></tr></table></figure></p>
+<p>variable1 和 variable2 實際上是相同的東西，當然在陣列等其他基本數據類別也是一樣的狀況。<br><br><br><a id="more"></a><br><br></p>
 <p>###2. pointer<br><br><br>實際上會看到的狀況大概分成以下四種<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span>* veriable1 = &amp; data_base          </div><div class="line"><span class="keyword">int</span> <span class="keyword">const</span> *veriable2 = &amp; data_base          </div><div class="line"><span class="keyword">int</span>* <span class="keyword">const</span> veriable3 = &amp; data_base        </div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span>* <span class="keyword">const</span> veriable4 = &amp; data_base</div></pre></td></tr></table></figure></p>
 <p>第一次看到時通常大概都會跟我依樣一個頭兩個大~~不過我們如果加上括號就會很容易理解了<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> (<span class="keyword">int</span>*) (veriable1) = &amp; data_base          <span class="comment">// 記憶體位置所指向的內容是常數</span></div><div class="line">(<span class="keyword">int</span>) <span class="keyword">const</span> (*veriable2) = &amp; data_base          <span class="comment">// 同上</span></div><div class="line">(<span class="keyword">int</span>*) <span class="keyword">const</span> (veriable3) = &amp; data_base          <span class="comment">// 所指向的記憶體位置不能變更</span></div><div class="line"><span class="keyword">const</span> (<span class="keyword">int</span>*) <span class="keyword">const</span> (veriable4) = &amp; data_base    <span class="comment">// 不准動，都不准動!!!!</span></div></pre></td></tr></table></figure></p>
 <p>如果還是不懂就搭配以下範例吧~<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">foo</span><span class="params">( [<span class="number">1</span>] <span class="keyword">int</span> [<span class="number">2</span>] * [<span class="number">3</span>] a)</span></span></div><div class="line">&#123;</div><div class="line">                    <span class="comment">//當const 放在[1][2][3]時</span></div><div class="line">	a=<span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">100</span>);<span class="comment">//[3]會錯在這一行</span></div><div class="line">	*a=<span class="number">50</span>;         <span class="comment">//[1][2]會錯在這一行</span></div><div class="line">	<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -64,7 +73,7 @@
 	
 
 	
-		<span class="different-posts"><a href="/2017/07/16/Const in C++/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
+		<span class="different-posts"><a href="/2017/03/30/Const in C++/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
 
 	
 
