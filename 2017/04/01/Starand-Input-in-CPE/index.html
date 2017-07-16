@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#33474d">
+	<title>Starand Input in CPE | Independent Dog</title>
+	<link rel="stylesheet" href="/css/style.css" />
+	
+      <link rel="alternate" href="https://www.google.com.tw/" title="Independent Dog" type="application/atom+xml">
+    
+</head>
+
+<body>
+
+	<header class="header">
+		<nav class="header__nav">
+			
+				<a href="/archives" class="header__link">Archive</a>
+			
+				<a href="/about" class="header__link">About page</a>
+			
+				<a href="/tags" class="header__link">Tags</a>
+			
+				<a href="/categories" class="header__link">Categories</a>
+			
+		</nav>
+		<h1 class="header__title"><a href="/">Independent Dog</a></h1>
+		<h2 class="header__subtitle">My EDA life record</h2>
+	</header>
+
+	<main>
+		<article>
+	
+		<h1>Starand Input in CPE</h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2017-04-01</span><br />
+		
+			<span class="article__category">
+				<a class="article-category-link" href="/categories/program/">program</a>
+			</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/CPE/">CPE</a> <a class="article__tag-link" href="/tags/Cpp/">Cpp</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<p><br>   </p>
+<h2 id="Perface"><a href="#Perface" class="headerlink" title="Perface"></a>Perface<br></h2><p>寫了一個上午的Parser，決定換個心情寫個網誌，順便把自己會用到的CPE基本輸入做一下整理。<br><br></p>
+<h2 id="Tble"><a href="#Tble" class="headerlink" title="Tble "></a>Tble <br></h2><ol>
+<li>cin</li>
+<li>cin.getline() </li>
+<li>getchar()</li>
+<li>getline()</li>
+<li>String sample introduction</li>
+</ol>
+<p><br></p>
+<a id="more"></a>
+<h3 id="1-cin"><a href="#1-cin" class="headerlink" title="1. cin"></a>1. cin</h3><p>最基本的輸入法，會省略空白跟換行等跳脫字元。<br></p>
+<p>Example:<br></p>
+<blockquote>
+<p>Data Input:<br>1 2 3 </p>
+</blockquote>
+<p><br>Porgram<br><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> n;</div><div class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; n)</div><div class="line">		<span class="built_in">cout</span> &lt;&lt; n &lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Output:<br>1<br>2<br>3<br>4</p>
+</blockquote>
+<h3 id="2-cin-getline"><a href="#2-cin-getline" class="headerlink" title="2. cin.getline()"></a>2. cin.getline()</h3><p>Reference 中是這麼寫的<br></p>
+<p><font style="background-color:9BCD9B">istream&amp; getline (char* s, streamsize n, char delim );<br></font></p>
+<p>第一個參數 *s 是用來接字元指標的, 第二個 n 則是確認指標陣列長短 <br></p>
+<p>第三個delim則是對每一行斷點的定義，預設是 ‘\n’ 也就是換行<br></p>
+<p>Example:<br></p>
+<blockquote>
+<p>Data Input:<br>1 2 3<br>4 5 6 7 8 abc<br>GgiNinDer </p>
+</blockquote>
+<p>Porgram<br><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">char</span> c[<span class="number">100</span>];</div><div class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span>.getline(c,<span class="number">100</span>))</div><div class="line">		<span class="built_in">cout</span> &lt;&lt; c &lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Output:<br>1 2 3<br>4 5 6 7 8 abc<br>GgiNinDer </p>
+</blockquote>
+<p>如果我們在最後一個參數填入’i’則會在讀到i時停止。<br></p>
+<blockquote>
+<p>Output:<br>1 2 3<br>4 5 6 7 8 abc<br>Gg<br>N<br>nDer </p>
+</blockquote>
+<h3 id="3-getchar"><a href="#3-getchar" class="headerlink" title="3. getchar()"></a>3. getchar()</h3><p>我只有在cin 和其他輸入混合使用時會用到，主要應用在把cin沒有吃掉但會影響getline的’\n’吃掉。<br>可以參考:<a href="https://coaoy.github.io/2017/03/30/3-31/" target="_blank" rel="external">“How to use StringStream(sstream) in C++ STL (UVA:482)”</a>中程式碼第13行和15行，此處不再贅述。<br><br></p>
+<h2 id="4-getline"><a href="#4-getline" class="headerlink" title="4. getline()"></a>4. getline()</h2><p>並不是iostream裡面的東西，使用時要include string。<br></p>
+<p>Example:<br></p>
+<blockquote>
+<p>Data Input:<br>1 2 3<br>4 5 6 7 8 abc<br>GgiNinDer </p>
+</blockquote>
+<p>Porgram<br><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="built_in">string</span> s;</div><div class="line">	<span class="keyword">while</span>(getline(<span class="built_in">cin</span>,s))</div><div class="line">		<span class="built_in">cout</span> &lt;&lt; s &lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Output:<br>1 2 3<br>4 5 6 7 8 abc<br>GgiNinDer </p>
+</blockquote>
+<h3 id="5-String-sample-introduction"><a href="#5-String-sample-introduction" class="headerlink" title="5. String sample introduction"></a>5. String sample introduction</h3><p>重點在這裡XD<br></p>
+<p>主要是把早上寫的Parser裡用到做法整理一下。<br><br>不過大部分還是從 <a href="http://www.cplusplus.com/reference/string/string/" target="_blank" rel="external">Cplusplus</a> 搬運的就是了~</p>
+<p><style type="text/css"><br>    table.tableizer-table {<br>        font-size: 12px;<br>        border: 0px solid #CCC;<br>        font-family: Arial, Helvetica, sans-serif;<br>    }<br>    .tableizer-table td {<br>        padding: 3px;<br>        margin: 4px;<br>        border: 0px solid #CCC;<br>    }<br>    .tableizer-table th {<br>        background-color: #104E8B;<br>        color: #FFF;<br>        font-weight: bold;<br>    }<br></style></p>
+<table class="tableizer-table"><br><thead><tr class="tableizer-firstrow"><th>Function Name</th><th>Introduce</th></tr></thead><tbody><br> <tr><td>operator+</td><td>Concatenate strings </td></tr><br> <tr><td>operator[]</td><td>Get character of string</td></tr><br> <tr><td>size</td><td>Return length of string </td></tr><br> <tr><td>begin</td><td>Return iterator to beginning</td></tr><br> <tr><td>end</td><td>Return iterator to end</td></tr><br> <tr><td>c_str</td><td>Get C string equivalent </td></tr><br> <tr><td>find</td><td>Find content in string</td></tr><br> <tr><td>substr</td><td>Generate substring </td></tr><br></tbody></table>
+
+<h3 id="Explain"><a href="#Explain" class="headerlink" title="Explain:"></a>Explain:</h3><ul>
+<li>Operator+ <br><br> 可以將兩個字串相加，我個人比較常用到+=，這樣有相當於Push_back的效果</li>
+<li>operator[] <br><br> 字串也可以當成字元陣列，用法和Array的[]是相同的意思</li>
+<li><p>size<br></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> str =<span class="string">"Test string"</span>;</div><div class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"The size of str is "</span> &lt;&lt; str.size() &lt;&lt; <span class="string">" bytes.\n"</span>;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Output:<br>The size of str is 11 bytes</p>
+</blockquote>
+</li>
+<li><p>c_str()<br><br>會將字串拆開成字元，我通常會搭配 cstdlib Libery的atoi 做型別轉換  會把string轉換成int。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> str=<span class="string">"1234567"</span>;</div><div class="line"><span class="keyword">int</span> i=atoi(str.c_str());</div><div class="line"><span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">"\n"</span>;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Output:<br>1234567</p>
+</blockquote>
+</li>
+<li><p>find<br><br>總共有三個參數，第一個是char陣列或者string的Pointer or Reference第二個是搜尋開始的位置，第三個則是C 陣列的問題所以需要的陣列長度，如果第一個參數是string相關的就可以不用管了，至於Example我懶得想例子所以直接搬運了 ~(OAO)~<br>出處:<a href="http://www.cplusplus.com/reference/string/string/find/" target="_blank" rel="external">Cplusplus std::string::find</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">str</span> <span class="params">(<span class="string">"There are two needles in this haystack with needles."</span>)</span></span>;</div><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">str2</span> <span class="params">(<span class="string">"needle"</span>)</span></span>;</div><div class="line"></div><div class="line"><span class="comment">// different member versions of find in the same order as above:</span></div><div class="line"><span class="keyword">size_t</span> found = str.find(str2);</div><div class="line"><span class="keyword">if</span> (found!=<span class="built_in">string</span>::npos)</div><div class="line">   	<span class="built_in">cout</span> &lt;&lt; <span class="string">"first 'needle' found at: "</span> &lt;&lt; found &lt;&lt; <span class="string">'\n'</span>;</div><div class="line"></div><div class="line">found=str.find(<span class="string">"needles are small"</span>,found+<span class="number">1</span>,<span class="number">6</span>);</div><div class="line"><span class="keyword">if</span> (found!=<span class="built_in">string</span>::npos)</div><div class="line">   	<span class="built_in">cout</span> &lt;&lt; <span class="string">"second 'needle' found at: "</span> &lt;&lt; found &lt;&lt; <span class="string">'\n'</span>;</div><div class="line"></div><div class="line">found=str.find(<span class="string">"haystack"</span>);</div><div class="line"><span class="keyword">if</span> (found!=<span class="built_in">string</span>::npos)</div><div class="line">   	<span class="built_in">cout</span> &lt;&lt; <span class="string">"'haystack' also found at: "</span> &lt;&lt; found &lt;&lt; <span class="string">'\n'</span>;</div><div class="line"></div><div class="line">found=str.find(<span class="string">'.'</span>);</div><div class="line"><span class="keyword">if</span> (found!=<span class="built_in">string</span>::npos)</div><div class="line">   	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Period found at: "</span> &lt;&lt; found &lt;&lt; <span class="string">'\n'</span>;</div><div class="line"></div><div class="line"><span class="comment">// let's replace the first needle:</span></div><div class="line">str.replace(str.find(str2),str2.length(),<span class="string">"preposition"</span>);</div><div class="line"><span class="built_in">cout</span> &lt;&lt; str &lt;&lt; <span class="string">'\n'</span>;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Output:<br>second ‘needle’ found at: 44<br>‘haystack’ also found at: 30<br>Period found at: 51<br>There are two prepositions in this haystack with needles.</p>
+</blockquote>
+</li>
+<li><p>substr<br><br><font style="background-color:9BCD9B">string substr (size_t pos = 0, size_t len = npos) const;</font><br><br>第一個參數是起點，第二個是子字串長度。<br>範例出處:<a href="http://www.cplusplus.com/reference/string/string/substr/" target="_blank" rel="external">Cplusplus std::string::substr</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> str=<span class="string">"We think in generalities, but we live in details."</span>;</div><div class="line">                                       <span class="comment">// (quoting Alfred N. Whitehead)</span></div><div class="line"><span class="built_in">string</span> str2 = str.substr (<span class="number">3</span>,<span class="number">5</span>);     <span class="comment">// "think"</span></div><div class="line"></div><div class="line"><span class="keyword">size_t</span> pos = str.find(<span class="string">"live"</span>);      <span class="comment">// position of "live" in str</span></div><div class="line"></div><div class="line"><span class="built_in">string</span> str3 = str.substr (pos);     <span class="comment">// get from "live" to the end</span></div><div class="line"></div><div class="line"><span class="built_in">cout</span> &lt;&lt; str2 &lt;&lt; <span class="string">' '</span> &lt;&lt; str3 &lt;&lt; <span class="string">'\n'</span>;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Output:<br>think live in details.</p>
+</blockquote>
+<p>其實還有一個偷懶的方法，比如今天有一個字串叫M17394，假設我只要需要面數字的部分，那麼可以直接用下列方法</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">string k="M17394";</div><div class="line">string k2(k.begin()+1,k.end());</div></pre></td></tr></table></figure>
+<p>不過這樣相當缺乏彈性，除非測資相當固定，不然還是用find_first_not_of 和 find_first_of 等string 裡面其它memeber function會比較好。</p>
+</li>
+</ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="http://www.cplusplus.com/" target="_blank" rel="external">cplusplu.com</a></p>
+
+	
+
+	
+		<span class="different-posts"><a href="/2017/04/01/Starand-Input-in-CPE/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
+
+	
+
+</article>
+
+	</main>
+
+	<footer class="footer">
+	<div class="footer-content">
+		
+	      <div class="footer__element">
+	<p> </p>
+</div>
+
+	    
+	      <div class="footer__element">
+	<ul class="footer-links">
+		<li class="footer-links__link"><a href="/archives">Archive</a></li>
+		<li class="footer-links__link"><a href="/about">about page</a></li>
+		<li class="footer-links__link"><a href="/tags">Tags</a></li>
+		<li class="footer-links__link"><a href="/categories">Categories</a></li>
+	</ul>
+</div>
+
+	    
+
+		<div class="footer-credit">
+			<span>© 2017 Doge | Powered by <a href="https://hexo.io/">Hexo</a> | Theme <a href="https://github.com/HoverBaum/meilidu-hexo">MeiliDu</a></span>
+		</div>
+
+	</div>
+
+
+</footer>
+
+
+
+</body>
+
+</html>

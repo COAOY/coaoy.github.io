@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#33474d">
+	<title>How to use StringStream(sstream) in C++ STL (UVA:482) | Independent Dog</title>
+	<link rel="stylesheet" href="/css/style.css" />
+	
+      <link rel="alternate" href="https://www.google.com.tw/" title="Independent Dog" type="application/atom+xml">
+    
+</head>
+
+<body>
+
+	<header class="header">
+		<nav class="header__nav">
+			
+				<a href="/archives" class="header__link">Archive</a>
+			
+				<a href="/about" class="header__link">About page</a>
+			
+				<a href="/tags" class="header__link">Tags</a>
+			
+				<a href="/categories" class="header__link">Categories</a>
+			
+		</nav>
+		<h1 class="header__title"><a href="/">Independent Dog</a></h1>
+		<h2 class="header__subtitle">My EDA life record</h2>
+	</header>
+
+	<main>
+		<article>
+	
+		<h1>How to use StringStream(sstream) in C++ STL (UVA:482)</h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2017-03-30</span><br />
+		
+			<span class="article__category">
+				<a class="article-category-link" href="/categories/program/">program</a>
+			</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/CPE/">CPE</a> <a class="article__tag-link" href="/tags/Cpp/">Cpp</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<p><br>   </p>
+<h3 id="Perface"><a href="#Perface" class="headerlink" title="Perface"></a>Perface<br></h3><p>由於前幾天在CPE考試上每題都需要string 轉型成 int， 寫到整個腦溢血後痛定思痛決定要把幾百年前懶得看得StringStream拿出來複習一遍，所以才有了這個網誌和這篇文章。<br><br><br></p>
+<h3 id="Main"><a href="#Main" class="headerlink" title="Main"></a>Main<br></h3><p>  StringStream 是用來處理String type轉換問題的 Libery 使用前需要引用sstream Header File。<br>由於第一次使用MarkDown還在熟悉語法所以就簡短的打打而已，有興趣的話就自己去看它的Reference吧!<br><br>[1]<br><br></p>
+<a id="more"></a>
+<ul>
+<li>string to int</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> s=<span class="string">"91 92 63 17 70"</span>;</div><div class="line"><span class="keyword">int</span> int_array[<span class="number">100</span>],n=<span class="number">0</span>;</div><div class="line"><span class="built_in">stringstream</span> ss;</div><div class="line">    ss &lt;&lt; s;</div><div class="line"><span class="keyword">while</span>(ss &gt;&gt; int_arry[n++])</div></pre></td></tr></table></figure>
+<p>&ensp;&ensp;&ensp;透過ss，9192631770就會依序存取到整數陣列int_arry裡面了</p>
+<ul>
+<li>int to string</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i=<span class="number">9192631770</span>;</div><div class="line"><span class="built_in">string</span> s;</div><div class="line"><span class="built_in">stringstream</span> ss;</div><div class="line">    ss &lt;&lt; i;</div><div class="line">ss &gt;&gt; s;</div></pre></td></tr></table></figure>
+<p>&ensp;&ensp;&ensp;單純的把9192631770轉換成字串</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example<br></h3><p>###UVA:482<br>  Permutation Arrays<br>In many computer problems, it is necessary to permute data arrays. That is, the data in an array must be re-arranged in some specified order. One way to permute arbitrary data arrays is to specify the permutations with an index array to point out the position of the elements in the new array. Let x be an array that is to be permuted and let x’ be the permuted array. Then, we have the relationship between x and x’ that x’pi = xi.</p>
+<p>Input </p>
+<p>The input begins with a single positive integer on a line by itself indicating the number of the cases following, each of them as described below. This line is followed by a blank line, and there is also a blank line between two consecutive inputs.<br>Each input set will contain two lines of numbers. The first line will be an index array p containing the integers 1…n, where n is the number of integers in the list. The numbers in the first line will have been permuted in some fashion. The second line will contain a list numbers in floating point format.</p>
+<p>Output </p>
+<p>For each test case, the output must follow the description below. The outputs of two consecutive cases will be separated by a blank line.<br>The output for this program will be the list of floating point numbers from the input set, ordered according to the permutation array from the input file. The output numbers must be printed one per line in the same format in which they each appeared in the input file.</p>
+<p>Sample Input </p>
+<p>1</p>
+<p>3 1 2<br>32.0 54.7 -2<br>Sample Output </p>
+<p>54.7<br>-2<br>32.0</p>
+<p>測資我是用makefile直接丟進來的，所以程式裡沒有讀檔。此外需要注意的是sstream會把.0的小數部分省略，<br>怕麻煩的話就直接當成字串處理吧。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> t;</div><div class="line">    <span class="built_in">string</span> s;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; t;</div><div class="line">    getchar();</div><div class="line">    <span class="keyword">while</span>(t--) </div><div class="line">    &#123;</div><div class="line">        getchar();</div><div class="line">        <span class="keyword">int</span> int_arry[<span class="number">100</span>], n = <span class="number">1</span>;</div><div class="line">        <span class="keyword">float</span> f[<span class="number">100</span>];</div><div class="line">        getline(<span class="built_in">cin</span>,s);</div><div class="line">        <span class="built_in">stringstream</span> ss;</div><div class="line">        ss &lt;&lt; s;</div><div class="line">        <span class="keyword">while</span>(ss &gt;&gt; int_arry[n])n++;</div><div class="line">        getline(<span class="built_in">cin</span>,s);</div><div class="line">        ss.clear();</div><div class="line">        ss &lt;&lt; s;</div><div class="line">        n = <span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span>(ss &gt;&gt; f[int_arry[n]])n++;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i= <span class="number">1</span>; i &lt; n; i++)</div><div class="line">            <span class="built_in">cout</span> &lt;&lt;f[i] &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Output:<br>54.7<br>-2<br>32<br><br><br>為了避免32.0的.0被捨去，所以直接用字串對應會是更好的選擇。</p>
+</blockquote>
+<p>將15行的float f[100]; 改寫成 string f[100];</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> f[<span class="number">100</span>];</div></pre></td></tr></table></figure>
+<p><br></p>
+<blockquote>
+<p>Output:<br>54.7<br>-2<br>32.0</p>
+</blockquote>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference<br></h3><p>Reference StringStream <a href="http://www.cplusplus.com/reference/sstream/stringstream/" target="_blank" rel="external">http://www.cplusplus.com/reference/sstream/stringstream/</a> [1]<br>Morris’ Blog <a href="http://morris821028.github.io/" target="_blank" rel="external">http://morris821028.github.io/</a> [2]</p>
+<p><br><br><br><br></p>
+
+	
+
+	
+		<span class="different-posts"><a href="/2017/03/30/3-31/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
+
+	
+
+</article>
+
+	</main>
+
+	<footer class="footer">
+	<div class="footer-content">
+		
+	      <div class="footer__element">
+	<p> </p>
+</div>
+
+	    
+	      <div class="footer__element">
+	<ul class="footer-links">
+		<li class="footer-links__link"><a href="/archives">Archive</a></li>
+		<li class="footer-links__link"><a href="/about">about page</a></li>
+		<li class="footer-links__link"><a href="/tags">Tags</a></li>
+		<li class="footer-links__link"><a href="/categories">Categories</a></li>
+	</ul>
+</div>
+
+	    
+
+		<div class="footer-credit">
+			<span>© 2017 Doge | Powered by <a href="https://hexo.io/">Hexo</a> | Theme <a href="https://github.com/HoverBaum/meilidu-hexo">MeiliDu</a></span>
+		</div>
+
+	</div>
+
+
+</footer>
+
+
+
+</body>
+
+</html>
