@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#33474d">
+	<title>GNU GCC on Window | Independent Dog</title>
+	<link rel="stylesheet" href="/css/style.css" />
+	
+      <link rel="alternate" href="https://www.google.com.tw/" title="Independent Dog" type="application/atom+xml">
+    
+</head>
+
+<body>
+
+	<header class="header">
+		<nav class="header__nav">
+			
+				<a href="/archives" class="header__link">Archive</a>
+			
+				<a href="/about" class="header__link">About page</a>
+			
+				<a href="/tags" class="header__link">Tags</a>
+			
+				<a href="/categories" class="header__link">Categories</a>
+			
+				<a href="/tutorial" class="header__link">Tutorial</a>
+			
+		</nav>
+		<h1 class="header__title"><a href="/">Independent Dog</a></h1>
+		<h2 class="header__subtitle">My EDA life record</h2>
+	</header>
+
+	<main>
+		<article>
+	
+		<h1>GNU GCC on Window</h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2017-07-19</span><br />
+		
+		
+	</div>
+
+	
+
+	
+		<h2 id="檔案安裝"><a href="#檔案安裝" class="headerlink" title="檔案安裝"></a>檔案安裝</h2><p>工欲善其事，必先利其器。在安裝GCC之前我們要先把好用的文字編輯器安裝好。我個人推薦的是visual studio code 和 Sublime text 兩個個有優缺，喜歡那個就裝那一個吧!!<br></p>
+<p><a href="https://code.visualstudio.com/" target="_blank" rel="external"><font color="blue"> visual studio code</font></a><br><a href="https://www.sublimetext.com/3" target="_blank" rel="external"><font color="blue"> Sublime Text 3</font></a><br></p>
+<p>接下來要下載GNU GCC了，下面我提供懶人載點不過最好還是自己上網找最新的比較好。</p>
+<p><font color="red"> key word </font> : mingw-get-inst<br><a href="https://sourceforge.net/projects/mingw/files/OldFiles/mingw-get-inst/" target="_blank" rel="external"><font color="blue"> GNU GCC</font></a><br><br>make 一樣提供懶人載點，雖然很久沒更新了不過還是找找看比較好。</p>
+<p><font color="red"> key word </font> : make for windows<br><a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/make-3.81.exe/download?use_mirror=nchc&amp;download=" target="_blank" rel="external"><font color="blue"> make</font></a><br><a id="more"></a></p>
+<h2 id="更改環境變數"><a href="#更改環境變數" class="headerlink" title="更改環境變數"></a>更改環境變數</h2><p>更改環境變數的用意在於讓終端機知道要去哪裡找執行指令的文件。<br></p>
+<p>步驟:windows 的系統 &gt;&gt; 進階系統設定 &gt;&gt; 進階 &gt;&gt; 環境變數 &gt;&gt; 系統變數裡的Path &gt;&gt; 編輯<br><br>在最後加上分號然後貼上你安裝的MinGW的bin資料夾的完整路徑，預設是C:\MinGW\bin。加上分號後再貼上GNU32的bin資料夾的完整路徑，預設是C:\Program Files (x86)\GnuWin32\bin。<br></p>
+<p>之後打開你的終端機(搜尋 &gt;&gt; CMD)打上gcc -v 看看有沒有出現版本資訊<br><br><br><img src="1.jpg" alt=""><br></p>
+<h2 id="終端機捷徑製作"><a href="#終端機捷徑製作" class="headerlink" title="終端機捷徑製作"></a>終端機捷徑製作</h2><p>創立一個新的文字檔，內容打cmd &gt;&gt; 將主檔名改成Terminal附檔名改成.bat &gt;&gt; 雙擊兩下打開檔案</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><br><br></h2><p>Reference:<a href="http://itspg.github.io/blog/2012/04/06/windows-gnu-tutorial/" target="_blank" rel="external"> <font color="blue"> 在Windows下建立GNU編譯環境</font></a></p>
+
+	
+
+	
+		<span class="different-posts"><a href="/2017/07/19/GNU GCC on Window/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
+
+	
+
+</article>
+
+	</main>
+
+	<footer class="footer">
+	<div class="footer-content">
+		
+	      <div class="footer__element">
+	<p> </p>
+</div>
+
+	    
+	      <div class="footer__element">
+	<ul class="footer-links">
+		<li class="footer-links__link"><a href="/archives">Archive</a></li>
+		<li class="footer-links__link"><a href="/about">about page</a></li>
+		<li class="footer-links__link"><a href="/tags">Tags</a></li>
+		<li class="footer-links__link"><a href="/categories">Categories</a></li>
+	</ul>
+</div>
+
+	    
+
+		<div class="footer-credit">
+			<span>© 2017 Doge | Powered by <a href="https://hexo.io/">Hexo</a> | Theme <a href="https://github.com/HoverBaum/meilidu-hexo">MeiliDu</a></span>
+		</div>
+
+	</div>
+
+
+</footer>
+
+
+
+</body>
+
+</html>
