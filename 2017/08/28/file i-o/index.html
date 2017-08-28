@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="theme-color" content="#33474d">
-	<title>Independent Dog</title>
+	<title>i/o | Independent Dog</title>
 	<link rel="stylesheet" href="/css/style.css" />
 	
       <link rel="alternate" href="https://www.google.com.tw/" title="Independent Dog" type="application/atom+xml">
@@ -33,13 +33,9 @@
 	</header>
 
 	<main>
-		
-
-
-
-	<article>
+		<article>
 	
-		<h1><a href="/2017/08/28/file i-o/">i/o</a></h1>
+		<h1>i/o</h1>
 	
 	<div class="article__infos">
 		<span class="article__date">2017-08-28</span><br />
@@ -66,152 +62,11 @@
 	
 
 	
-
-</article>
-
-
-
-
-	<article>
-	
-		<h1><a href="/2017/07/21/sample-makefile/">Sample Makefile</a></h1>
-	
-	<div class="article__infos">
-		<span class="article__date">2017-07-21</span><br />
-		
-		
-	</div>
-
-	
-
-	
-		<h2 id="1-使用Makefile的原因以及-Compile-過程"><a href="#1-使用Makefile的原因以及-Compile-過程" class="headerlink" title="1.使用Makefile的原因以及 Compile 過程"></a>1.使用Makefile的原因以及 Compile 過程</h2><p>簡單來說的話makefile就是一個把你要終端機執行的程序預先設置好讓終端機批次處理的檔案。<br>好比我今天要將 (cpp檔案 &gt;&gt; 執行檔執行) 這個過程，如果直接在終端機輸入指令的話會有:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">g++ -c main.cpp </div><div class="line">g++ -o file main.o</div><div class="line">file.exe</div></pre></td></tr></table></figure></p>
-<p>這三個指令，如果每次修改了程式後就要重新complier，那也就代表要重新輸入指令這對整個工作過程可以說是相當浪費時間的。因此使用makefile去節省這部分的時間是對整個程式開發過程極為重要的一件事!!<br></p>
-		<p><a class="article__read-more-link" href="/2017/07/21/sample-makefile/">...more</a></p>
-	
+		<span class="different-posts"><a href="/2017/08/28/file i-o/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
 
 	
 
 </article>
-
-
-
-
-	<article>
-	
-		<h1><a href="/2017/07/19/GNU GCC on Window/">GNU GCC on Windows</a></h1>
-	
-	<div class="article__infos">
-		<span class="article__date">2017-07-19</span><br />
-		
-		
-	</div>
-
-	
-
-	
-		<h2 id="檔案安裝"><a href="#檔案安裝" class="headerlink" title="檔案安裝"></a>檔案安裝</h2><p>工欲善其事，必先利其器。在安裝GCC之前我們要先把好用的文字編輯器安裝好。我個人推薦的是visual studio code 和 Sublime text 兩個個有優缺，喜歡那個就裝那一個吧!!<br></p>
-<p><a href="https://code.visualstudio.com/" target="_blank" rel="external"><font color="blue"> visual studio code</font></a><br><a href="https://www.sublimetext.com/3" target="_blank" rel="external"><font color="blue"> Sublime Text 3</font></a><br></p>
-<p>接下來要下載GNU GCC了，下面我提供懶人載點不過最好還是自己上網找最新的比較好。</p>
-<p><font color="red"> key word </font> : mingw-get-inst<br><a href="https://sourceforge.net/projects/mingw/files/OldFiles/mingw-get-inst/" target="_blank" rel="external"><font color="blue"> GNU GCC</font></a><br><br>make 一樣提供懶人載點，雖然很久沒更新了不過還是找找看比較好。</p>
-<p><font color="red"> key word </font> : make for windows<br><a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/make-3.81.exe/download?use_mirror=nchc&amp;download=" target="_blank" rel="external"><font color="blue"> make</font></a><br></p>
-		<p><a class="article__read-more-link" href="/2017/07/19/GNU GCC on Window/">...more</a></p>
-	
-
-	
-
-</article>
-
-
-
-
-	<article>
-	
-		<h1><a href="/2017/07/16/Const in C++/">Const in C++</a></h1>
-	
-	<div class="article__infos">
-		<span class="article__date">2017-07-16</span><br />
-		
-			<span class="article__category">
-				<a class="article-category-link" href="/categories/program/">program</a>
-			</span><br />
-		
-		
-			<span class="article__tags">
-			  	<a class="article__tag-link" href="/tags/Cpp/">Cpp</a>
-			</span>
-		
-	</div>
-
-	
-
-	
-		<p><br>   </p>
-<h3 id="Perface"><a href="#Perface" class="headerlink" title="Perface "></a>Perface <br></h3><p>這幾天在寫 ofstream overloading時，因為記錯const位置代表的意義所以花了很多時間搞懂以前為求速成所堆積的腦內業障XD。不過大部分浪費時間的地方還要拜一篇寫錯的介紹文所賜，所以趁著記憶清醒時自己整理一篇。<br><br><br></p>
-<h2 id="Table"><a href="#Table" class="headerlink" title="Table "></a>Table <br></h2><ol>
-<li>variable</li>
-<li>pointer</li>
-<li>function</li>
-<li>class constructor</li>
-</ol>
-<p><br></p>
-<h3 id="1-variable"><a href="#1-variable" class="headerlink" title="1. variable"></a>1. variable</h3><p>基本數據修飾在位置上其實沒什麼差別。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> variable1 = <span class="number">10</span>;</div><div class="line"><span class="keyword">int</span> <span class="keyword">const</span> variable2 = <span class="number">10</span>;</div></pre></td></tr></table></figure></p>
-<p>variable1 和 variable2 實際上是相同的東西，當然在陣列等其他基本數據類別也是一樣的狀況。</p>
-		<p><a class="article__read-more-link" href="/2017/07/16/Const in C++/">...more</a></p>
-	
-
-	
-
-</article>
-
-
-
-
-	<article>
-	
-		<h1><a href="/2017/04/01/Standard-Input-in-CPE/">Standard Input in CPE</a></h1>
-	
-	<div class="article__infos">
-		<span class="article__date">2017-04-01</span><br />
-		
-			<span class="article__category">
-				<a class="article-category-link" href="/categories/program/">program</a>
-			</span><br />
-		
-		
-			<span class="article__tags">
-			  	<a class="article__tag-link" href="/tags/CPE/">CPE</a> <a class="article__tag-link" href="/tags/Cpp/">Cpp</a>
-			</span>
-		
-	</div>
-
-	
-
-	
-		<p><br>   </p>
-<h2 id="Perface"><a href="#Perface" class="headerlink" title="Perface"></a>Perface<br></h2><p>寫了一個上午的Parser，決定換個心情寫個網誌，順便把自己會用到的CPE基本輸入做一下整理。<br><br></p>
-<h2 id="Table"><a href="#Table" class="headerlink" title="Table "></a>Table <br></h2><ol>
-<li>cin</li>
-<li>cin.getline() </li>
-<li>getchar()</li>
-<li>getline()</li>
-<li>String sample introduction</li>
-</ol>
-<p><br></p>
-		<p><a class="article__read-more-link" href="/2017/04/01/Standard-Input-in-CPE/">...more</a></p>
-	
-
-	
-
-</article>
-
-
-
-
-
-	<span class="different-posts">📖 <a href="/page/2">more posts</a> 📖</span>
-
-
 
 	</main>
 
