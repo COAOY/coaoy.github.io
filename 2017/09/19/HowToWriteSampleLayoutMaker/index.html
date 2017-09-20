@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="theme-color" content="#33474d">
-	<title>Independent Dog</title>
+	<title>HowToWriteSampleLayoutMaker | Independent Dog</title>
 	<link rel="stylesheet" href="/css/style.css" />
 	
       <link rel="alternate" href="https://www.google.com.tw/" title="Independent Dog" type="application/atom+xml">
@@ -33,13 +33,9 @@
 	</header>
 
 	<main>
-		
-
-
-
-	<article>
+		<article>
 	
-		<h1><a href="/2017/09/19/HowToWriteSampleLayoutMaker/">HowToWriteSampleLayoutMaker</a></h1>
+		<h1>HowToWriteSampleLayoutMaker</h1>
 	
 	<div class="article__infos">
 		<span class="article__date">2017-09-19</span><br />
@@ -71,130 +67,11 @@
 	
 
 	
-
-</article>
-
-
-
-
-	<article>
-	
-		<h1><a href="/2017/09/15/Algorithm/">Algorithm</a></h1>
-	
-	<div class="article__infos">
-		<span class="article__date">2017-09-15</span><br />
-		
-		
-	</div>
-
-	
-
-	
-		<p>#Algorithm</p>
-<p>在C++的Algorithm 標頭檔中有許多實用的排序法其ADT也相當簡單。只要將想要排序的初始<br>位置參照和結束位置參照傳入並給定比對法就可以輕易使用了~</p>
-<p>本文會將重點將放在使用的比對函式以及其overloading的範例上。</p>
-		<p><a class="article__read-more-link" href="/2017/09/15/Algorithm/">...more</a></p>
-	
+		<span class="different-posts"><a href="/2017/09/19/HowToWriteSampleLayoutMaker/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
 
 	
 
 </article>
-
-
-
-
-	<article>
-	
-		<h1><a href="/2017/09/08/map/">map</a></h1>
-	
-	<div class="article__infos">
-		<span class="article__date">2017-09-08</span><br />
-		
-		
-	</div>
-
-	
-
-	
-		<h1 id="STL-Map-教學"><a href="#STL-Map-教學" class="headerlink" title="STL Map 教學"></a>STL Map 教學</h1><p>在C++基本函式庫中實作紅黑樹(Red Black Tree)和雜湊(Hash)的資料結構分別是<br>map 和 unordered_map 兩個資料結構在使用上基本上沒有什麼區別，不同的部分只有map 的紅勒樹是可以用iterator尋訪，以及搜尋時間是O(log N) 而unordered_map則不能尋訪但其搜尋時間是<br>O(1)。<br></p>
-		<p><a class="article__read-more-link" href="/2017/09/08/map/">...more</a></p>
-	
-
-	
-
-</article>
-
-
-
-
-	<article>
-	
-		<h1><a href="/2017/08/30/vector/">vector</a></h1>
-	
-	<div class="article__infos">
-		<span class="article__date">2017-08-30</span><br />
-		
-		
-	</div>
-
-	
-
-	
-		<h1 id="c-STL-Vector-使用教學"><a href="#c-STL-Vector-使用教學" class="headerlink" title="c++ STL Vector 使用教學"></a>c++ STL Vector 使用教學</h1><blockquote>
-<p> 簡介<br> 建構子<br> 物件函式</p>
-</blockquote>
-<h2 id="1-簡介"><a href="#1-簡介" class="headerlink" title="1.簡介"></a>1.簡介</h2><pre><code>Vector 是C++ 中用來產生動態陣列的資料結構，替代C中
-動態陣列繁複的malloc(), realloc()以簡化開發程序。
-</code></pre>
-		<p><a class="article__read-more-link" href="/2017/08/30/vector/">...more</a></p>
-	
-
-	
-
-</article>
-
-
-
-
-	<article>
-	
-		<h1><a href="/2017/08/28/file i-o/">file IO</a></h1>
-	
-	<div class="article__infos">
-		<span class="article__date">2017-08-28</span><br />
-		
-			<span class="article__category">
-				<a class="article-category-link" href="/categories/program/">program</a>
-			</span><br />
-		
-		
-			<span class="article__tags">
-			  	<a class="article__tag-link" href="/tags/Cpp/">Cpp</a>
-			</span>
-		
-	</div>
-
-	
-
-	
-		<h1 id="檔案讀取教學"><a href="#檔案讀取教學" class="headerlink" title="檔案讀取教學"></a>檔案讀取教學</h1><p>如果將要讀取的檔案名稱存在程式裡，每次要執行新的檔案時都要重新complier一次。檔案還小時還不打緊但當檔案數目到了一定數量後曠日廢時的編譯時間會令使用者抓狂所以好的讀檔方式是在程式設計中不可或缺的一環。</p>
-<p>在Linux 的terminal  上執行程式我們會使用./語法 如:./file &lt; input_name &gt; &lt; ouput_name &gt;。將要讀取之檔案名稱以及輸出之檔案位址加在後頭是個不錯的方法。具體實作上我們會使用到argc,argv[]這兩個參數。</p>
-<p>在上面的範例中，argc 是輸入的指令總數 file input_name ouput_name 總共有三個參數，所以argc是3。argv則是一個字串陣列，每一個陣列中的元素代表著輸入的字串。以上題為例:argv[1]會是 input_name, argv[2]則會是 ouput_name。</p>
-<p>使用範例:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-		<p><a class="article__read-more-link" href="/2017/08/28/file i-o/">...more</a></p>
-	
-
-	
-
-</article>
-
-
-
-
-
-	<span class="different-posts">📖 <a href="/page/2">more posts</a> 📖</span>
-
-
 
 	</main>
 
