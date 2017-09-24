@@ -41,6 +41,41 @@
 
 	<article>
 	
+		<h1><a href="/2017/08/28/file i-o/">file IO</a></h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2017-08-28</span><br />
+		
+			<span class="article__category">
+				<a class="article-category-link" href="/categories/program/">program</a>
+			</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/Cpp/">Cpp</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<h1 id="檔案讀取教學"><a href="#檔案讀取教學" class="headerlink" title="檔案讀取教學"></a>檔案讀取教學</h1><p>如果將要讀取的檔案名稱存在程式裡，每次要執行新的檔案時都要重新complier一次。檔案還小時還不打緊但當檔案數目到了一定數量後曠日廢時的編譯時間會令使用者抓狂所以好的讀檔方式是在程式設計中不可或缺的一環。</p>
+<p>在Linux 的terminal  上執行程式我們會使用./語法 如:./file &lt; input_name &gt; &lt; ouput_name &gt;。將要讀取之檔案名稱以及輸出之檔案位址加在後頭是個不錯的方法。具體實作上我們會使用到argc,argv[]這兩個參數。</p>
+<p>在上面的範例中，argc 是輸入的指令總數 file input_name ouput_name 總共有三個參數，所以argc是3。argv則是一個字串陣列，每一個陣列中的元素代表著輸入的字串。以上題為例:argv[1]會是 input_name, argv[2]則會是 ouput_name。</p>
+<p>使用範例:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+		<p><a class="article__read-more-link" href="/2017/08/28/file i-o/">...more</a></p>
+	
+
+	
+
+</article>
+
+
+
+
+	<article>
+	
 		<h1><a href="/2017/07/21/sample-makefile/">Sample Makefile</a></h1>
 	
 	<div class="article__infos">
@@ -175,43 +210,9 @@
 
 
 
-	<article>
-	
-		<h1><a href="/2017/03/30/How to use StringStream(sstream) in C++ STL (UVA482)/">How to use StringStream(sstream) in C++ STL (UVA:482)</a></h1>
-	
-	<div class="article__infos">
-		<span class="article__date">2017-03-30</span><br />
-		
-			<span class="article__category">
-				<a class="article-category-link" href="/categories/program/">program</a>
-			</span><br />
-		
-		
-			<span class="article__tags">
-			  	<a class="article__tag-link" href="/tags/CPE/">CPE</a> <a class="article__tag-link" href="/tags/Cpp/">Cpp</a>
-			</span>
-		
-	</div>
 
-	
+	<span class="different-posts">📖 <a href="/page/3">more posts</a> 📖</span>
 
-	
-		<p><br>   </p>
-<h3 id="Perface"><a href="#Perface" class="headerlink" title="Perface"></a>Perface<br></h3><p>由於前幾天在CPE考試上每題都需要string 轉型成 int， 寫到整個腦溢血後痛定思痛決定要把幾百年前懶得看得StringStream拿出來複習一遍，所以才有了這個網誌和這篇文章。<br><br><br></p>
-<h3 id="Main"><a href="#Main" class="headerlink" title="Main"></a>Main<br></h3><p>  StringStream 是用來處理String type轉換問題的 Libery 使用前需要引用sstream Header File。<br>由於第一次使用MarkDown還在熟悉語法所以就簡短的打打而已，有興趣的話就自己去看它的Reference吧!<br><br>[1]<br><br></p>
-		<p><a class="article__read-more-link" href="/2017/03/30/How to use StringStream(sstream) in C++ STL (UVA482)/">...more</a></p>
-	
-
-	
-
-</article>
-
-
-
-
-
-
-	<span class="different-posts">📕 end of posts 📕</span>
 
 
 	</main>
