@@ -39,7 +39,35 @@
 
 	<article>
 	
-		<h1><a href="/2017/09/30/Thread/">Thread</a></h1>
+		<h1><a href="/2017/09/30/ExecuteTime/">簡易計算程式執行時間之程式</a></h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2017-09-30</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/c/">c++</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<p>由於程式相當簡單也沒什麼深度，所以我就寫了一篇給自己方便copy用的網誌XD<br></p>
+		<p><a class="article__read-more-link" href="/2017/09/30/ExecuteTime/">...more</a></p>
+	
+
+	
+
+</article>
+
+
+
+
+	<article>
+	
+		<h1><a href="/2017/09/30/Thread/">STL Thread</a></h1>
 	
 	<div class="article__infos">
 		<span class="article__date">2017-09-30</span><br />
@@ -54,7 +82,7 @@
 	
 
 	
-		<h1 id="STL-Thread"><a href="#STL-Thread" class="headerlink" title="STL Thread"></a>STL Thread</h1><p>多執行序(Thread)，是C++11後一個有效加速程式的方法。即便只有單一質性序也可以大幅加快程式執行速度。<br>要注意的是在使用thread時，要在compile中將cpp編譯成obj的指令(-c)加入-lpthread，此篇文章指講述我使用過的指令當作學習紀錄，想要跟加深入了解救自己翻reference吧。</p>
+		<p>多執行序(Thread)，是C++11後一個有效加速程式的方法。即便只有單一質性序也可以大幅加快程式執行速度。<br>要注意的是在使用thread時，要在compile中將cpp編譯成obj的指令(-c)加入-lpthread，此篇文章指講述我使用過的指令當作學習紀錄，想要跟加深入了解救自己翻reference吧。</p>
 <blockquote>
 <ul>
 <li>簡易介紹</li>
@@ -62,12 +90,8 @@
 <li>運用於 class 之 member function</li>
 </ul>
 </blockquote>
-<h2 id="簡易介紹"><a href="#簡易介紹" class="headerlink" title="簡易介紹"></a>簡易介紹</h2><p><figure class="figure"><img src="https://i-msdn.sec.s-msft.com/dynimg/IC170146.gif" alt="MSDN"><figcaption class="figure__caption">MSDN</figcaption></figure><br>圖片來自於MSDN的網頁，Thread其實觀念並不複雜，就只是同時啟動多個執行序。重要的是要保證每個執行序的資料獨立性，如果共用的話會產生double free的錯誤先完成的執行續做了free的動作，這會導致還在執行的質性序產生不可預期的錯誤。此種錯誤debug上也相當困難故須謹慎。<br>join為Thread的member function，功用為在此處等待其物件執行完成。</p>
-<h2 id="運用於-function"><a href="#運用於-function" class="headerlink" title="運用於 function"></a>運用於 function</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span></span>&#123;<span class="comment">/* something */</span>&#125;;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo2</span><span class="params">( <span class="keyword">int</span> i )</span></span>&#123;<span class="comment">/* something */</span>&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function">thread <span class="title">th1</span><span class="params">(foo)</span></span>;</div><div class="line">    <span class="function">thread <span class="title">th2</span><span class="params">(foo2,<span class="number">0</span>)</span></span>;</div><div class="line">    </div><div class="line">    th1.join();</div><div class="line">    th2.join();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="運用於-class-中之-member-function"><a href="#運用於-class-中之-member-function" class="headerlink" title="運用於 class 中之 member function"></a>運用於 class 中之 member function</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#include &lt;thread&gt;</div><div class="line">using namespace std;</div><div class="line"></div><div class="line">class foo</div><div class="line">&#123;</div><div class="line">    void var()&#123;/* something */&#125;;</div><div class="line">    void var2(int *a)&#123;/* something */&#125;;</div><div class="line">    void thr()</div><div class="line">    &#123;</div><div class="line">        int a;</div><div class="line">        thread th1(&amp;foo::var,this);//執行物件中的var物件函式</div><div class="line">        thread th2(&amp;foo::var2,this,&amp;a);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    thread th2(&amp;foo::var,var());//建立新物件並執行var</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>此篇大致上作為紀錄，筆者尚未摸透Thread之底層執行法故不做贅述</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><p><a href="http://www.cplusplus.com/reference/thread/thread/" target="_blank" rel="external"><font color="blue"> Thread cplusplus</font></a><br><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2497.html#library" target="_blank" rel="external"><font color="blue"> 官方文件</font></a><br><a href="https://kheresy.wordpress.com/2012/07/06/multi-thread-programming-in-c-thread-p1/" target="_blank" rel="external"><font color="blue"> Heresy Space</font></a></p>
-
+<h2 id="簡易介紹"><a href="#簡易介紹" class="headerlink" title="簡易介紹"></a>簡易介紹</h2><p><img src="https://i-msdn.sec.s-msft.com/dynimg/IC170146.gif" alt="MSDN"><br>圖片來自於MSDN的網頁，Thread其實觀念並不複雜，就只是同時啟動多個執行序。重要的是要保證每個執行序的資料獨立性，如果共用的話會產生double free的錯誤先完成的執行續做了free的動作，這會導致還在執行的質性序產生不可預期的錯誤。此種錯誤debug上也相當困難故須謹慎。<br>join為Thread的member function，功用為在此處等待其物件執行完成。</p>
+		<p><a class="article__read-more-link" href="/2017/09/30/Thread/">...more</a></p>
 	
 
 	
@@ -155,38 +179,6 @@
 		<h2 id="1-使用Makefile的原因以及-Compile-過程"><a href="#1-使用Makefile的原因以及-Compile-過程" class="headerlink" title="1.使用Makefile的原因以及 Compile 過程"></a>1.使用Makefile的原因以及 Compile 過程</h2><p>簡單來說的話makefile就是一個把你要終端機執行的程序預先設置好讓終端機批次處理的檔案。<br>好比我今天要將 (cpp檔案 &gt;&gt; 執行檔執行) 這個過程，如果直接在終端機輸入指令的話會有:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">g++ -c main.cpp </div><div class="line">g++ -o file main.o</div><div class="line">file.exe</div></pre></td></tr></table></figure></p>
 <p>這三個指令，如果每次修改了程式後就要重新complier，那也就代表要重新輸入指令這對整個工作過程可以說是相當浪費時間的。因此使用makefile去節省這部分的時間是對整個程式開發過程極為重要的一件事!!<br></p>
 		<p><a class="article__read-more-link" href="/2017/07/21/sample-makefile/">...more</a></p>
-	
-
-	
-
-</article>
-
-
-
-
-	<article>
-	
-		<h1><a href="/2017/07/19/GNU GCC on Window/">GNU GCC on Windows</a></h1>
-	
-	<div class="article__infos">
-		<span class="article__date">2017-07-19</span><br />
-		
-		
-			<span class="article__tags">
-			  	<a class="article__tag-link" href="/tags/C/">C++</a>
-			</span>
-		
-	</div>
-
-	
-
-	
-		<h2 id="檔案安裝"><a href="#檔案安裝" class="headerlink" title="檔案安裝"></a>檔案安裝</h2><p>工欲善其事，必先利其器。在安裝GCC之前我們要先把好用的文字編輯器安裝好。我個人推薦的是visual studio code 和 Sublime text 兩個個有優缺，喜歡那個就裝那一個吧!!<br></p>
-<p><a href="https://code.visualstudio.com/" target="_blank" rel="external"><font color="blue"> visual studio code</font></a><br><a href="https://www.sublimetext.com/3" target="_blank" rel="external"><font color="blue"> Sublime Text 3</font></a><br></p>
-<p>接下來要下載GNU GCC了，下面我提供懶人載點不過最好還是自己上網找最新的比較好。</p>
-<p><font color="red"> key word </font> : mingw-get-inst<br><a href="https://sourceforge.net/projects/mingw/files/OldFiles/mingw-get-inst/" target="_blank" rel="external"><font color="blue"> GNU GCC</font></a><br><br>make 一樣提供懶人載點，雖然很久沒更新了不過還是找找看比較好。</p>
-<p><font color="red"> key word </font> : make for windows<br><a href="https://sourceforge.net/projects/gnuwin32/files/make/3.81/make-3.81.exe/download?use_mirror=nchc&amp;download=" target="_blank" rel="external"><font color="blue"> make</font></a><br></p>
-		<p><a class="article__read-more-link" href="/2017/07/19/GNU GCC on Window/">...more</a></p>
 	
 
 	

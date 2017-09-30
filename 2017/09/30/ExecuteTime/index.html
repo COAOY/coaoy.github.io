@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#33474d">
+	<title>簡易計算程式執行時間之程式 | Independent Dog</title>
+	<link rel="stylesheet" href="/css/style.css" />
+	
+      <link rel="alternate" href="https://www.google.com.tw/" title="Independent Dog" type="application/atom+xml">
+    
+</head>
+
+<body>
+
+	<header class="header">
+		<nav class="header__nav">
+			
+				<a href="/archives" class="header__link">Archive</a>
+			
+				<a href="/about" class="header__link">About page</a>
+			
+				<a href="/tags" class="header__link">Tags</a>
+			
+				<a href="/categories" class="header__link">Categories</a>
+			
+				<a href="/Record" class="header__link">Record</a>
+			
+		</nav>
+		<h1 class="header__title"><a href="/">Independent Dog</a></h1>
+		<h2 class="header__subtitle">My EDA life record</h2>
+	</header>
+
+	<main>
+		<article>
+	
+		<h1>簡易計算程式執行時間之程式</h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2017-09-30</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/c/">c++</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<p>由於程式相當簡單也沒什麼深度，所以我就寫了一篇給自己方便copy用的網誌XD<br><a id="more"></a><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctime&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">clock_t</span> start,end;</div><div class="line">	start = clock();</div><div class="line">	<span class="comment">/*</span></div><div class="line">		do something</div><div class="line">	*/</div><div class="line">	end=clock();</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"Parsern Time: %f seconds\n"</span>, (<span class="keyword">double</span>)(end-start)/CLOCKS_PER_SEC);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+	
+
+	
+		<span class="different-posts"><a href="/2017/09/30/ExecuteTime/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
+
+	
+
+</article>
+
+	</main>
+
+	<footer class="footer">
+	<div class="footer-content">
+		
+	      <div class="footer__element">
+	<p> </p>
+</div>
+
+	    
+	      <div class="footer__element">
+	<ul class="footer-links">
+		<li class="footer-links__link"><a href="/archives">Archive</a></li>
+		<li class="footer-links__link"><a href="/about">about page</a></li>
+		<li class="footer-links__link"><a href="/tags">Tags</a></li>
+		<li class="footer-links__link"><a href="/categories">Categories</a></li>
+	</ul>
+</div>
+
+	    
+
+		<div class="footer-credit">
+			<span>© 2017 Doge | Powered by <a href="https://hexo.io/">Hexo</a> | Theme <a href="https://github.com/HoverBaum/meilidu-hexo">MeiliDu</a></span>
+		</div>
+
+	</div>
+
+
+</footer>
+
+
+
+</body>
+
+</html>
