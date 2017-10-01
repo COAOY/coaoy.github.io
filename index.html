@@ -90,7 +90,7 @@
 <li>運用於 class 之 member function</li>
 </ul>
 </blockquote>
-<h2 id="簡易介紹"><a href="#簡易介紹" class="headerlink" title="簡易介紹"></a>簡易介紹</h2><p><img src="https://i-msdn.sec.s-msft.com/dynimg/IC170146.gif" alt="MSDN"><br>圖片來自於MSDN的網頁，Thread其實觀念並不複雜，就只是同時啟動多個執行序。重要的是要保證每個執行序的資料獨立性，如果共用的話會產生double free的錯誤先完成的執行續做了free的動作，這會導致還在執行的質性序產生不可預期的錯誤。此種錯誤debug上也相當困難故須謹慎。<br>join為Thread的member function，功用為在此處等待其物件執行完成。</p>
+<h2 id="簡易介紹"><a href="#簡易介紹" class="headerlink" title="簡易介紹"></a>簡易介紹</h2><p><img src="https://i-msdn.sec.s-msft.com/dynimg/IC170146.gif" alt="MSDN"><br>圖片來自於MSDN的網頁，Thread其實觀念並不複雜，就只是同時啟動多個執行序。重要的是要保證每個執行序的資料獨立性，如果共用的話會產生double free的錯誤。先完成的執行續做了free的動作，這會導致還在執行的執行序產生不可預期的錯誤。此種錯誤debug上也相當困難故須謹慎。<br>join為Thread的member function，功用為在此處等待其物件執行完成。</p>
 		<p><a class="article__read-more-link" href="/2017/09/30/Thread/">...more</a></p>
 	
 
@@ -161,10 +161,10 @@
 
 	<article>
 	
-		<h1><a href="/2017/07/21/sample-makefile/">簡易Makefile教學</a></h1>
+		<h1><a href="/2017/09/15/Algorithm/">Algorithm</a></h1>
 	
 	<div class="article__infos">
-		<span class="article__date">2017-07-21</span><br />
+		<span class="article__date">2017-09-15</span><br />
 		
 		
 			<span class="article__tags">
@@ -176,9 +176,10 @@
 	
 
 	
-		<h2 id="1-使用Makefile的原因以及-Compile-過程"><a href="#1-使用Makefile的原因以及-Compile-過程" class="headerlink" title="1.使用Makefile的原因以及 Compile 過程"></a>1.使用Makefile的原因以及 Compile 過程</h2><p>簡單來說的話makefile就是一個把你要終端機執行的程序預先設置好讓終端機批次處理的檔案。<br>好比我今天要將 (cpp檔案 &gt;&gt; 執行檔執行) 這個過程，如果直接在終端機輸入指令的話會有:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">g++ -c main.cpp </div><div class="line">g++ -o file main.o</div><div class="line">file.exe</div></pre></td></tr></table></figure></p>
-<p>這三個指令，如果每次修改了程式後就要重新complier，那也就代表要重新輸入指令這對整個工作過程可以說是相當浪費時間的。因此使用makefile去節省這部分的時間是對整個程式開發過程極為重要的一件事!!<br></p>
-		<p><a class="article__read-more-link" href="/2017/07/21/sample-makefile/">...more</a></p>
+		<p>#STL Algorithm</p>
+<p>在C++的Algorithm 標頭檔中有許多實用的排序法其ADT也相當簡單。只要將想要排序的初始<br>位置參照和結束位置參照傳入並給定比對法就可以輕易使用了~</p>
+<p>本文會將重點將放在使用的比對函式以及其overloading的範例上。</p>
+		<p><a class="article__read-more-link" href="/2017/09/15/Algorithm/">...more</a></p>
 	
 
 	

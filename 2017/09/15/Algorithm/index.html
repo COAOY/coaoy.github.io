@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#33474d">
+	<title>Algorithm | Independent Dog</title>
+	<link rel="stylesheet" href="/css/style.css" />
+	
+      <link rel="alternate" href="https://www.google.com.tw/" title="Independent Dog" type="application/atom+xml">
+    
+</head>
+
+<body>
+
+	<header class="header">
+		<nav class="header__nav">
+			
+				<a href="/archives" class="header__link">Archive</a>
+			
+				<a href="/about" class="header__link">About page</a>
+			
+				<a href="/tags" class="header__link">Tags</a>
+			
+				<a href="/categories" class="header__link">Categories</a>
+			
+				<a href="/Record" class="header__link">Record</a>
+			
+		</nav>
+		<h1 class="header__title"><a href="/">Independent Dog</a></h1>
+		<h2 class="header__subtitle">My EDA life record</h2>
+	</header>
+
+	<main>
+		<article>
+	
+		<h1>Algorithm</h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2017-09-15</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/C/">C++</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<p>#STL Algorithm</p>
+<p>在C++的Algorithm 標頭檔中有許多實用的排序法其ADT也相當簡單。只要將想要排序的初始<br>位置參照和結束位置參照傳入並給定比對法就可以輕易使用了~</p>
+<p>本文會將重點將放在使用的比對函式以及其overloading的範例上。</p>
+<a id="more"></a>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//如果要在class的member function使用的話只要在物件中做overloading就可以了</span></div><div class="line"><span class="comment">//如果有多個比較需求的話也可以設定static並透過選擇方式決定比較法</span></div><div class="line"><span class="keyword">class</span> Node</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	<span class="keyword">int</span> s,e;</div><div class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt; (<span class="keyword">const</span> Node &amp;s)<span class="keyword">const</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">return</span> (<span class="keyword">this</span>-&gt;s &gt; s.s);</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line"><span class="comment">//static的多種比較，不過要記得在不同的CPP裡要預先定義好static的數字</span></div><div class="line"><span class="keyword">class</span> Node</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">static</span> choice; </div><div class="line">	<span class="keyword">int</span> s,e;</div><div class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt; (<span class="keyword">const</span> Node &amp;s)<span class="keyword">const</span></div><div class="line">	&#123;</div><div class="line">	    <span class="keyword">if</span>(choice==<span class="number">1</span>)</div><div class="line">		    <span class="keyword">return</span> (<span class="keyword">this</span>-&gt;s &gt; s.s);</div><div class="line">		<span class="keyword">else</span></div><div class="line">		    <span class="keyword">return</span> (<span class="keyword">this</span>-&gt;e &gt; s.e);</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//透過寫好的函式做比較</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">class</span> Node</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	Node(<span class="keyword">int</span> i):a(i*<span class="number">2</span>)&#123;&#125;;</div><div class="line">	~Node()&#123;&#125;;</div><div class="line">	<span class="keyword">int</span> a;</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">compare1</span><span class="params">(Node s, Node t)</span></span>&#123;<span class="keyword">return</span> s.a &gt; t.a;&#125;;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">compare2</span><span class="params">(Node s, Node t)</span></span>&#123;<span class="keyword">return</span> s.a &lt; t.a;&#125;;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">vector</span>&lt;Node&gt; arr;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</div><div class="line">    	arr.push_back( Node (i) );</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; (i+<span class="number">2</span>)&lt;<span class="number">10</span>; i+=<span class="number">2</span>)swap(arr[i],arr[i+<span class="number">2</span>]);</div><div class="line">   </div><div class="line">    sort(arr.begin(),arr.end(),compare1);</div><div class="line">	sort(arr.begin(),arr.end(),compare2);</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+	
+
+	
+		<span class="different-posts"><a href="/2017/09/15/Algorithm/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
+
+	
+
+</article>
+
+	</main>
+
+	<footer class="footer">
+	<div class="footer-content">
+		
+	      <div class="footer__element">
+	<p> </p>
+</div>
+
+	    
+	      <div class="footer__element">
+	<ul class="footer-links">
+		<li class="footer-links__link"><a href="/archives">Archive</a></li>
+		<li class="footer-links__link"><a href="/about">about page</a></li>
+		<li class="footer-links__link"><a href="/tags">Tags</a></li>
+		<li class="footer-links__link"><a href="/categories">Categories</a></li>
+	</ul>
+</div>
+
+	    
+
+		<div class="footer-credit">
+			<span>© 2017 Doge | Powered by <a href="https://hexo.io/">Hexo</a> | Theme <a href="https://github.com/HoverBaum/meilidu-hexo">MeiliDu</a></span>
+		</div>
+
+	</div>
+
+
+</footer>
+
+
+
+</body>
+
+</html>

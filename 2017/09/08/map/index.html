@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#33474d">
+	<title>Independent Dog</title>
+	<link rel="stylesheet" href="/css/style.css" />
+	
+      <link rel="alternate" href="https://www.google.com.tw/" title="Independent Dog" type="application/atom+xml">
+    
+</head>
+
+<body>
+
+	<header class="header">
+		<nav class="header__nav">
+			
+				<a href="/archives" class="header__link">Archive</a>
+			
+				<a href="/about" class="header__link">About page</a>
+			
+				<a href="/tags" class="header__link">Tags</a>
+			
+				<a href="/categories" class="header__link">Categories</a>
+			
+				<a href="/Record" class="header__link">Record</a>
+			
+		</nav>
+		<h1 class="header__title"><a href="/">Independent Dog</a></h1>
+		<h2 class="header__subtitle">My EDA life record</h2>
+	</header>
+
+	<main>
+		<article>
+	
+		<h1></h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2017-09-08</span><br />
+		
+		
+	</div>
+
+	
+
+	
+		<hr>
+<p>title: STL Map 教學<br>date: 2017-09-08 12:44:00</p>
+<h2 id="tags-C"><a href="#tags-C" class="headerlink" title="tags: C++"></a>tags: C++</h2><p>在C++基本函式庫中實作紅黑樹(Red Black Tree)和雜湊(Hash)的資料結構分別是<br>map 和 unordered_map 兩個資料結構在使用上基本上沒有什麼區別，不同的部分只有map 的紅勒樹是可以用iterator尋訪，以及搜尋時間是O(log N) 而unordered_map則不能尋訪但其搜尋時間是<br>O(1)。<br><a id="more"></a><br>以下就列出建構方式以及常用的物件函式</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="comment">///////////////////////////////////</span></div><div class="line"><span class="comment">//©NCHU VLSICAD LAB。版權所有</span></div><div class="line"><span class="comment">//Author: 鄭景鴻</span></div><div class="line"><span class="comment">///////////////////////////////////</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;// c++11後才支援此head file</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">class</span> Block</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	Block(<span class="keyword">int</span> x, <span class="keyword">int</span> y):x(x),y(y)&#123;&#125;;</div><div class="line">	Block()&#123;&#125;;</div><div class="line">	~Block()&#123;&#125;;</div><div class="line">	<span class="function"><span class="keyword">int</span> <span class="title">getX</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> x;&#125;;</div><div class="line">	<span class="function"><span class="keyword">int</span> <span class="title">getY</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> y;&#125;;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">	<span class="keyword">int</span> x,y;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="built_in">map</span>&lt;<span class="keyword">int</span>, Block&gt;  t1;<span class="comment">//創建一個 key是int,data是Blcok的資料結構。</span></div><div class="line">	<span class="built_in">map</span>&lt;<span class="keyword">int</span>, Block*&gt; t2;<span class="comment">//創建一個 key是int,data是Blcok*的資料結構。</span></div><div class="line">	</div><div class="line">	<span class="comment">// 插入</span></div><div class="line">	<span class="comment">// Class 一定要有() constructer 應為map的call by value是產生一個空白的物件</span></div><div class="line">	<span class="comment">// 並將原本的值assignment到裡面去。</span></div><div class="line">	t1[ <span class="number">1</span> ] = Block (<span class="number">3</span>,<span class="number">5</span>);</div><div class="line">	t1[ <span class="number">2</span> ] = Block (<span class="number">4</span>,<span class="number">6</span>);</div><div class="line">	t2[ <span class="number">1</span> ] = <span class="keyword">new</span> Block(<span class="number">3</span>,<span class="number">5</span>);</div><div class="line"></div><div class="line">	<span class="comment">//查找</span></div><div class="line">	t1.find(<span class="number">1</span>); <span class="comment">// 回傳 key 為 1 的參照要指定尋找的部分是key 還是data</span></div><div class="line">	t1.find(<span class="number">1</span>)-&gt;first;<span class="comment">// 回傳 key 為 1 之ket參照位置且須注意key為const不得修改變動</span></div><div class="line">	t1.find(<span class="number">1</span>)-&gt;second;<span class="comment">// 回傳 key 為 1 之data參照位置</span></div><div class="line"></div><div class="line">	t1.count(<span class="number">1</span>);	<span class="comment">//回傳 key 1 之大小(不為0即為存在)</span></div><div class="line"></div><div class="line">	t1.at(<span class="number">1</span>);	<span class="comment">//回傳 key 為 1 之data參照</span></div><div class="line"></div><div class="line">	<span class="comment">//刪除及一些拉哩拉紮的東西</span></div><div class="line">	t1.erase(<span class="number">1</span>);			<span class="comment">// 用 key 刪除</span></div><div class="line">	t1.erase(t1.find(<span class="number">2</span>));	<span class="comment">// 用參照刪除</span></div><div class="line"></div><div class="line">	t1.size(); <span class="comment">// 回傳t1大小</span></div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Reference<br><a href="http://www.cplusplus.com/reference/map/map/" target="_blank" rel="external"><font color="blue"> Map </font></a><br><a href="http://www.cplusplus.com/reference/unordered_map/unordered_map/" target="_blank" rel="external"><font color="blue"> Unordered_Map </font></a></p>
+
+	
+
+	
+		<span class="different-posts"><a href="/2017/09/08/map/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
+
+	
+
+</article>
+
+	</main>
+
+	<footer class="footer">
+	<div class="footer-content">
+		
+	      <div class="footer__element">
+	<p> </p>
+</div>
+
+	    
+	      <div class="footer__element">
+	<ul class="footer-links">
+		<li class="footer-links__link"><a href="/archives">Archive</a></li>
+		<li class="footer-links__link"><a href="/about">about page</a></li>
+		<li class="footer-links__link"><a href="/tags">Tags</a></li>
+		<li class="footer-links__link"><a href="/categories">Categories</a></li>
+	</ul>
+</div>
+
+	    
+
+		<div class="footer-credit">
+			<span>© 2017 Doge | Powered by <a href="https://hexo.io/">Hexo</a> | Theme <a href="https://github.com/HoverBaum/meilidu-hexo">MeiliDu</a></span>
+		</div>
+
+	</div>
+
+
+</footer>
+
+
+
+</body>
+
+</html>
